@@ -1,3 +1,5 @@
+require("config.lazy")
+
 vim.lsp.config('lua_ls', {
   on_init = function(client)
     if client.workspace_folders then
@@ -38,8 +40,6 @@ vim.lsp.config('gopls', {
 })
 vim.lsp.enable('gopls')
 
-require("config.lazy")
-
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -49,3 +49,4 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' 
 vim.keymap.set('n', '<leader>pp', builtin.builtin, { desc = 'Telescope planets' })
 
 vim.keymap.set('n', '<leader>ex', '<Cmd>Neotree toggle<CR>')
+vim.api.nvim_set_option("clipboard","unnamed")
